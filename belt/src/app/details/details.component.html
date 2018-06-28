@@ -1,0 +1,15 @@
+<div>
+  <div>
+    <h1>Details about {{ pet.name }}</h1>
+    <button id="nav-button" (click)="goHome()">Home</button>
+  </div>
+  <h2>Pet type: {{ pet.type }}</h2>
+  <h2>Description: {{ pet.description }}</h2>
+  <h2 style="text-decoration: underline">Skills</h2>
+    <h4>{{ pet.skillOne }}</h4>
+    <h4>{{ pet.skillTwo }}</h4>
+    <h4>{{ pet.skillThree }}</h4>
+  <h2><i class="fas fa-heart"></i>Likes: {{ pet.likes }}</h2>
+  <button (click)="Like()" [disabled]="disabled"><i class="fas fa-heart"></i> Like this pet </button>
+  <button (click)="Adopt()"><i class="fas fa-heart"></i> Adopt this pet! </button>
+</div>

@@ -1,0 +1,59 @@
+<div>
+  <h1>Edit this pet</h1>
+  <form (submit)="editPet()">
+      <div *ngIf="pet" class="form-group">
+          <h5 *ngIf="duplicate">Name "{{pet.name}}" already exists</h5>
+            <p>
+              <label for="pet.name">Pet Name:</label>
+              <input type="text" name="pet.name" required minlength="3" [(ngModel)]="pet.name" #name="ngModel">
+              <!-- {{ name.errors | json }} -->
+              <span  *ngIf="name.errors && name.errors.minlength"> Pet name must be at least 3 characters long</span>
+              <span  *ngIf="name.errors && name.errors.required"> Pet name required</span>
+            </p>
+            <p>
+              <label for="pet.type">Pet species:</label>
+              <input type="text" name="pet.type" required minlength="3" [(ngModel)]="pet.type" #type="ngModel">
+              <span  *ngIf="type.errors && type.errors.minlength"> Species name must be at least 3 characters long</span>
+              <span  *ngIf="type.errors && type.errors.required"> Species required</span>
+            </p>
+            <p>
+              <label for="pet.description">Description</label>
+              <input type="text" name="pet.description" required minlength="3" [(ngModel)]="pet.description" #description="ngModel">
+              <span  *ngIf="description.errors && description.errors.minlength"> Description must be at least 3 characters long</span>
+              <span  *ngIf="description.errors && description.errors.required"> Description required</span>
+            </p>
+
+        <!-- <label for="pet.name">Pet Name:</label>
+        <input type="text" name="pet.name" required minlength="3" [(ngModel)]="pet.name" #name="ngModel">
+        <label for="pet.type">Pet species:</label>
+        <input type="text" name="pet.type" required minlength="3" [(ngModel)]="pet.type" #type="ngModel">
+        <label for="pet.description">Description</label>
+        <input type="text" name="pet.description" required minlength="3" [(ngModel)]="pet.description" #description="ngModel"> -->
+      
+      
+      
+      </div>
+      <h4>Skills (optional):</h4>
+      <div *ngIf="pet" class="form-group">
+        <p>
+          <label for="pet.skillOne">Skill 1:</label>
+          <input type="text" name="pet.skillOne" [(ngModel)]="pet.skillOne">
+        </p>
+        <p>
+          <label for="pet.skillTwo">Skill 2:</label>
+          <input type="text" name="pet.skillTwo" [(ngModel)]="pet.skillTwo">
+        </p>
+        <p>
+          <label for="pet.skillThree">Skill 3:</label>
+          <input type="text" name="pet.skillThree" [(ngModel)]="pet.skillThree">
+        </p>
+      </div>
+        <input type="submit" [disabled]="name.errors || type.errors || description.errors" value="Save Changes">
+      <button (click)="goHome()">Cancel</button>
+    </form>
+    <!-- <h5  *ngIf="!name.valid"> Pet must have a name longer than 3 chars</h5>
+    <h5 *ngIf="!type.valid"> Pet must be something right? perhapse a dog?</h5>
+    <h5 *ngIf="!description.valid"> Describe your pet, say something good atleast</h5>
+    -->
+
+</div>
